@@ -2,52 +2,111 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Curiosidades</title>
+  <title>Site de Curiosidades</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.7;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #f9f9f9;
+      margin: 0;
+      background: #f4f6f9;
       color: #333;
     }
-    h1 {
+    header {
+      background: linear-gradient(135deg, #005fa3, #0077cc);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      font-size: 22px;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
       text-align: center;
       color: #005fa3;
+      font-size: 28px;
+      margin-bottom: 30px;
     }
-    p {
+    .video-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    iframe {
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease;
+    }
+    iframe:hover {
+      transform: scale(1.05);
+    }
+    .curiosidades {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .curiosidades h2 {
+      margin-bottom: 20px;
+    }
+    .curiosidades p {
       margin-bottom: 18px;
+      text-align: justify;
+      font-size: 18px;
+      line-height: 1.7;
     }
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      color: #005fa3;
-      text-decoration: none;
-      font-weight: bold;
+    footer {
+      background: #222;
+      color: #ccc;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <h1>Curiosidades que vão te surpreender</h1>
 
-  <p>O mel nunca estraga. Cientistas encontraram potes com mais de três mil anos em tumbas egípcias e ainda estavam próprios para consumo.</p>
+<header>
+  <h1>Curiosidades do Mundo</h1>
+  <p>Descubra fatos incríveis e surpreendentes</p>
+</header>
 
-  <p>Os polvos possuem três corações, e quando nadam o coração principal para de bater por alguns segundos.</p>
+<main>
+  <h2>Vídeos de curiosidades</h2>
+  <div class="video-grid">
+    <iframe width="340" height="200" src="https://www.youtube.com/embed/fqL3pZbNA4c" title="Curiosidades incríveis" allowfullscreen></iframe>
+    <iframe width="340" height="200" src="https://www.youtube.com/embed/v6wBA0S-HqM" title="Fatos científicos malucos" allowfullscreen></iframe>
+    <iframe width="340" height="200" src="https://www.youtube.com/embed/7QZp_Tp_gRk" title="Coisas que você não sabia" allowfullscreen></iframe>
+  </div>
 
-  <p>As tartarugas podem “respirar” pelo bumbum. Algumas espécies conseguem absorver oxigênio pela cloaca durante a hibernação na água.</p>
+  <section class="curiosidades">
+    <h2>Curiosidades que vão te surpreender</h2>
 
-  <p>O deserto do Atacama, no Chile, é o lugar mais seco da Terra. Existem áreas que não recebem chuva há séculos.</p>
+    <p>O mel nunca estraga. Cientistas encontraram potes com mais de três mil anos em tumbas egípcias e ainda estavam próprios para consumo.</p>
 
-  <p>A Muralha da China não pode ser vista do espaço a olho nu, ao contrário do que muitos acreditam. Astronautas confirmaram isso.</p>
+    <p>Os polvos possuem três corações, e quando nadam o coração principal para de bater por alguns segundos.</p>
 
-  <p>Flamingos não nascem cor-de-rosa. Eles ficam com essa cor por causa da alimentação rica em algas e crustáceos.</p>
+    <p>As tartarugas podem respirar pela cloaca, uma espécie de “respiração pelo bumbum”, que ajuda durante a hibernação debaixo d’água.</p>
 
-  <p>Na Antártida existe a “Cascata de Sangue”, uma cachoeira vermelha. A cor não vem de sangue, mas de ferro presente na água.</p>
+    <p>No Chile existe o deserto do Atacama, considerado o lugar mais seco do mundo. Há regiões que não recebem chuva há mais de quatro séculos.</p>
 
-  <p>Apesar de parecer uma árvore, a bananeira é a maior erva do mundo. E a banana é, na verdade, um tipo de baga.</p>
+    <p>Apesar do mito, a Muralha da China não é visível do espaço a olho nu. Astronautas confirmaram que isso é impossível sem auxílio de instrumentos.</p>
 
-  <a href="index.html">⬅ Voltar ao início</a>
+    <p>Os flamingos nascem acinzentados, e só ficam cor-de-rosa por causa dos pigmentos dos crustáceos e algas que comem.</p>
+
+    <p>Na Antártida existe a “Cascata de Sangue”, cuja água vermelha se deve à alta concentração de ferro em contato com o oxigênio.</p>
+
+    <p>A bananeira não é uma árvore, mas a maior erva do mundo. E a banana é classificada botanicamente como uma baga.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Site criado por <strong>Bernardo Silvano - 1ºB</strong> | Inspirado na Wikipédia | © 2025</p>
+</footer>
+
 </body>
 </html>
