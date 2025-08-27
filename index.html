@@ -4,25 +4,21 @@
   <meta charset="UTF-8">
   <title>Site de Curiosidades</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Google Fonts para um visual mais moderno -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0077cc;
-      --secondary: #005fa3;
-      --accent: #00c9a7;
-      --bg: #f4f6f9;
+      --primary: #3366cc;
+      --secondary: #223366;
+      --accent: #00b894;
+      --bg: #fafbfc;
       --white: #fff;
-      --shadow: 0 6px 20px rgba(0,0,0,0.12);
-    }
-    html {
-      scroll-behavior: smooth;
     }
     body {
       font-family: 'Roboto', Arial, sans-serif;
       margin: 0;
       background: var(--bg);
-      color: #333;
+      color: #2f2f2f;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -30,131 +26,220 @@
     header {
       background: linear-gradient(120deg, var(--secondary) 0%, var(--primary) 75%);
       color: var(--white);
-      padding: 52px 0 32px 0;
+      padding: 40px 0 22px 0;
       text-align: center;
-      box-shadow: var(--shadow);
-      position: relative;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.09);
     }
     header h1 {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 3rem;
+      font-size: 2.8rem;
       margin: 0 0 10px 0;
       letter-spacing: 2px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.13);
     }
     header p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: #e0eaf6;
       margin: 0;
+      font-style: italic;
+    }
+    nav {
+      margin-top: 18px;
+      text-align: center;
+    }
+    nav a {
+      color: #e0eaf6;
+      text-decoration: none;
+      margin: 0 18px;
+      font-weight: 500;
+      font-size: 1.07rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+      text-decoration: underline;
     }
     main {
       flex: 1;
-      padding: 48px 16px 24px 16px;
+      padding: 40px 10px 30px 10px;
       max-width: 1100px;
       margin: auto;
+      width: 100%;
     }
     h2 {
       text-align: center;
       color: var(--primary);
-      font-size: 2.2rem;
-      margin-bottom: 36px;
+      font-size: 2rem;
+      margin-bottom: 30px;
       font-family: 'Montserrat', Arial, sans-serif;
       letter-spacing: 1px;
     }
-    .video-grid {
+    .video-list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 32px;
-      margin-bottom: 64px;
+      gap: 36px 24px;
+      margin-bottom: 50px;
     }
-    .video-grid iframe {
-      border-radius: 13px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    .video-card {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(40,40,40,0.08);
+      width: 320px;
+      padding: 14px 14px 18px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.19s;
+    }
+    .video-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+    }
+    .video-card iframe {
+      width: 290px;
+      height: 163px;
       border: none;
-      transition: transform 0.22s cubic-bezier(.43,.01,.42,1.01), box-shadow 0.22s;
-      width: 340px;
-      height: 200px;
+      border-radius: 8px;
       background: #222;
+      margin-bottom: 12px;
     }
-    .video-grid iframe:hover {
-      transform: scale(1.06) translateY(-6px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.23);
+    .video-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.08rem;
+      color: var(--primary);
+      text-align: center;
+      margin: 0;
+      min-height: 38px;
+    }
+    .categorias-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      justify-content: center;
     }
     .categoria {
       background: var(--white);
-      padding: 32px 28px 24px 28px;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.09);
-      margin-bottom: 36px;
-      transition: box-shadow 0.18s;
-      border-left: 6px solid var(--accent);
-    }
-    .categoria:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
-      border-left: 8px solid var(--primary);
+      padding: 26px 18px 20px 18px;
+      border-radius: 13px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+      margin-bottom: 18px;
+      border-left: 5px solid var(--accent);
+      flex: 1 1 290px;
+      max-width: 330px;
+      min-width: 210px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
     }
     .categoria h3 {
-      display: flex;
-      align-items: center;
-      gap: 8px;
       color: var(--primary);
-      margin-bottom: 18px;
+      margin-bottom: 5px;
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.08rem;
     }
-    .categoria p {
-      margin-bottom: 10px;
-      text-align: justify;
-      font-size: 1.11rem;
-      line-height: 1.85;
-      color: #2b2b2b;
-      letter-spacing: 0.02em;
+    .categoria ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+    .categoria li {
+      margin-bottom: 5px;
+      font-size: 0.97rem;
+      line-height: 1.6;
+    }
+    .curiosidade-extra {
+      background: #e5f8f5;
+      border-left: 5px solid var(--accent);
+      border-radius: 10px;
+      padding: 13px 18px;
+      margin: 22px auto 0 auto;
+      max-width: 600px;
+      font-size: 1.03rem;
+      color: #197d6c;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      text-align: center;
     }
     footer {
-      background: #1c2532;
-      color: #d3dbe8;
-      padding: 22px 10px;
+      background: #223366;
+      color: #e7f2ff;
+      padding: 18px 10px;
       text-align: center;
       font-size: 15px;
-      border-top: 4px solid var(--primary);
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--accent);
+      margin-top: 20px;
+      letter-spacing: 0.01em;
     }
     footer strong {
       color: var(--accent);
       font-weight: 700;
+    }
+    @media (max-width: 850px) {
+      .video-list { flex-direction: column; align-items: center;}
+      .categorias-list { flex-direction: column; align-items: center;}
+      main { padding: 20px 3px 18px 3px;}
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Site de Curiosidades</h1>
-    <p>Descubra fatos incríveis do mundo!</p>
+    <p>Para matar a curiosidade e se surpreender com o mundo – feito por gente, para gente!</p>
+    <nav>
+      <a href="#videos">Vídeos</a>
+      <a href="#categorias">Categorias</a>
+    </nav>
   </header>
   <main>
-    <h2>Vídeos em Destaque</h2>
-    <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Curiosidade 1" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/YbJOTdZBX1g" title="Curiosidade 2" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="Curiosidade 3" allowfullscreen></iframe>
-    </div>
-    <div class="categoria">
-      <h3>🌎 Mundo</h3>
-      <p>Você sabia que o ponto mais profundo dos oceanos é a Fossa das Marianas, com cerca de 11.000 metros de profundidade?</p>
-    </div>
-    <div class="categoria">
-      <h3>🚀 Espaço</h3>
-      <p>Júpiter é tão grande que caberiam mais de 1.300 Terras dentro dele!</p>
-    </div>
-    <div class="categoria">
-      <h3>🧬 Ciência</h3>
-      <p>O DNA humano possui cerca de 3 bilhões de pares de bases, formando o nosso código genético.</p>
-    </div>
-  </main>
-  <footer>
-    <span>
-      Feito com <strong>curiosidade</strong> por você!
-    </span>
-  </footer>
-</body>
-</html>
+    <section id="videos">
+      <h2>10 Vídeos para Deixar Você de Queixo Caído</h2>
+      <div class="video-list">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/9TjEklyF7-E" title="50 Curiosidades INCRÍVEIS Sobre o Mundo"></iframe>
+          <div class="video-title">50 Curiosidades INCRÍVEIS Sobre o Mundo</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/4kt8F3dFtUo" title="10 Curiosidades Científicas Surpreendentes"></iframe>
+          <div class="video-title">10 Curiosidades Científicas Surpreendentes</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/Q8e8T8p5o5I" title="25 Curiosidades Sobre a Natureza"></iframe>
+          <div class="video-title">25 Curiosidades Sobre a Natureza</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/_EWwzpwQyOw" title="Curiosidades Sobre o Corpo Humano"></iframe>
+          <div class="video-title">Curiosidades Sobre o Corpo Humano</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/pzWnJt4wTBA" title="10 Invenções Incríveis da História"></iframe>
+          <div class="video-title">10 Invenções Incríveis da História</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/3p8j0Z8A6a8" title="Curiosidades do Universo: Os Segredos do Espaço"></iframe>
+          <div class="video-title">Curiosidades do Universo: Os Segredos do Espaço</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/kpTn9cQ7O6Y" title="Curiosidades Sobre Animais"></iframe>
+          <div class="video-title">Curiosidades Sobre Animais</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/k1D0_wFlXgo" title="10 Curiosidades Sobre o Brasil"></iframe>
+          <div class="video-title">10 Curiosidades Sobre o Brasil</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/2UjdoN0y3nI" title="Curiosidades Históricas Que Pouca Gente Sabe"></iframe>
+          <div class="video-title">Curiosidades Históricas Que Pouca Gente Sabe</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/4qzGz7W4a1A" title="Curiosidades Sobre o Planeta Terra"></iframe>
+          <div class="video-title">Curiosidades Sobre o Planeta Terra</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categorias">
+      <h2>Curiosidades Que Todo Mundo Vai Curtir</h2>
+      <div class="categorias-list">
+        <div class="categoria">
+          <h3>🌍 Mundo</h3>
+          <ul>
+            <li>O sol é 330 mil vezes maior que a Terra.</li>
+            <li>A Antártida é o único continente sem répteis ou cobras.</li>
+            <li>O Brasil possui o
