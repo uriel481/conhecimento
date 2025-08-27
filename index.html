@@ -3,133 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <title>Site de Curiosidades</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts para um visual mais moderno -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #0077cc;
+      --secondary: #005fa3;
+      --accent: #00c9a7;
+      --bg: #f4f6f9;
+      --white: #fff;
+      --shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', Arial, sans-serif;
       margin: 0;
-      background: #f4f6f9;
+      background: var(--bg);
       color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     header {
-      background: linear-gradient(135deg, #005fa3, #0077cc);
-      color: white;
-      padding: 30px;
+      background: linear-gradient(120deg, var(--secondary) 0%, var(--primary) 75%);
+      color: var(--white);
+      padding: 52px 0 32px 0;
       text-align: center;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    header h1 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 3rem;
+      margin: 0 0 10px 0;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.13);
+    }
+    header p {
+      font-size: 1.3rem;
+      color: #e0eaf6;
+      margin: 0;
     }
     main {
-      padding: 40px 20px;
+      flex: 1;
+      padding: 48px 16px 24px 16px;
       max-width: 1100px;
       margin: auto;
     }
     h2 {
       text-align: center;
-      color: #005fa3;
-      font-size: 28px;
-      margin-bottom: 30px;
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 36px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: 1px;
     }
     .video-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
-      margin-bottom: 60px;
+      gap: 32px;
+      margin-bottom: 64px;
     }
-    iframe {
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease;
+    .video-grid iframe {
+      border-radius: 13px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      border: none;
+      transition: transform 0.22s cubic-bezier(.43,.01,.42,1.01), box-shadow 0.22s;
+      width: 340px;
+      height: 200px;
+      background: #222;
     }
-    iframe:hover {
-      transform: scale(1.05);
+    .video-grid iframe:hover {
+      transform: scale(1.06) translateY(-6px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.23);
     }
     .categoria {
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
+      background: var(--white);
+      padding: 32px 28px 24px 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.09);
+      margin-bottom: 36px;
+      transition: box-shadow 0.18s;
+      border-left: 6px solid var(--accent);
+    }
+    .categoria:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+      border-left: 8px solid var(--primary);
     }
     .categoria h3 {
-      color: #0077cc;
-      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      margin-bottom: 18px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.5rem;
     }
     .categoria p {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       text-align: justify;
-      font-size: 18px;
-      line-height: 1.7;
+      font-size: 1.11rem;
+      line-height: 1.85;
+      color: #2b2b2b;
+      letter-spacing: 0.02em;
     }
     footer {
-      background: #222;
-      color: #ccc;
-      padding: 20px;
+      background: #1c2532;
+      color: #d3dbe8;
+      padding: 22px 10px;
       text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
+      font-size: 15px;
+      border-top: 4px solid var(--primary);
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
     }
-  </style>
-</head>
-<body>
+    footer strong {
+      color: var(--accent);
+      font-weight: 700;
 
-<header>
-  <h1>Curiosidades do Mundo</h1>
-  <p>Descubra fatos incríveis e surpreendentes</p>
-</header>
-
-<main>
-  <h2>Vídeos de Curiosidades</h2>
-  <div class="video-grid">
-    <!-- Vídeo 1 -->
-    <iframe width="340" height="200"
-      src="https://www.youtube.com/embed/ZefTnVs4Id8"
-      title="10 curiosidades da HISTÓRIA que vc não sabia"
-      allowfullscreen>
-    </iframe>
-
-    <!-- Vídeo 2 -->
-    <iframe width="340" height="200"
-      src="https://www.youtube.com/embed/EjoZgvIzOWY"
-      title="Vídeo de curiosidade 2"
-      allowfullscreen>
-    </iframe>
-
-    <!-- Vídeo 3 -->
-    <iframe width="340" height="200"
-      src="https://www.youtube.com/embed/nyQQQur7OrA"
-      title="Vídeo de curiosidade 3"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <!-- Categorias de textos -->
-  <section class="categoria">
-    <h3>🌍 Mundo</h3>
-    <p>No Chile existe o deserto do Atacama, considerado o lugar mais seco do planeta. Algumas áreas não recebem chuva há mais de 400 anos.</p>
-    <p>A Muralha da China não é visível do espaço a olho nu, ao contrário do que muita gente pensa.</p>
-  </section>
-
-  <section class="categoria">
-    <h3>🐙 Animais</h3>
-    <p>Os polvos possuem três corações, e quando nadam, o coração principal para por alguns segundos.</p>
-    <p>Os flamingos nascem acinzentados e só ficam cor-de-rosa por causa da alimentação rica em algas e crustáceos.</p>
-  </section>
-
-  <section class="categoria">
-    <h3>🔬 Ciência</h3>
-    <p>O mel nunca estraga. Potes encontrados em tumbas do Egito com mais de 3 mil anos ainda estavam próprios para consumo.</p>
-    <p>A banana é considerada botanicamente uma baga, e a bananeira não é uma árvore, mas sim a maior erva do mundo.</p>
-  </section>
-
-  <section class="categoria">
-    <h3>🌿 Natureza</h3>
-    <p>Na Antártida existe a “Cascata de Sangue”, cuja água vermelha se deve à oxidação do ferro presente no solo.</p>
-    <p>Existem árvores que podem viver mais de 4 mil anos, como os pinheiros-bristlecone encontrados na Califórnia.</p>
-  </section>
-</main>
-
-<footer>
-  <p>Site criado por <strong>Bernardo Silvano - 1ºB</strong> | Inspirado na Wikipédia | © 2025</p>
-</footer>
-
-</body>
-</html>
